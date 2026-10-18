@@ -25,6 +25,13 @@ output = [f"# LeetCode practice — {today.isoformat()}", "",
           "Complete these problems in C++. This workflow does not submit solutions.", ""]
 for p in selected:
     output.append(f"- **{p['difficulty']}** — [{p['id']}. {p['title']}](https://leetcode.com/problems/{p['slug']}/)")
+output += ["", "## C++ reference solutions", "", "Reference code is provided for study. Solutions have not been submitted to LeetCode.", ""]
+solutions = json.loads((ROOT / "solutions.json").read_text(encoding="utf-8"))
+for p in selected:
+    code = solutions.get(p["slug"])
+    if not code:
+        raise SystemExit(f"Missing reference solution for {p['slug']}")
+    output.extend([f"### {p['title']}", "", "```cpp", code, "```", ""])
 output += ["", "Verify accepted submissions on LeetCode yourself.", ""]
 folder = ROOT / "output"
 folder.mkdir(exist_ok=True)
