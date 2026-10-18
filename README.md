@@ -21,3 +21,8 @@ GitHub Actions cron is `30 14 * * *` (14:30 UTC = 20:00 IST); scheduled executio
 - `.github/workflows/daily.yml`: scheduled CI workflow.
 
 **Security:** This repository was public at setup. Use private repository visibility before adding any confidential data. Credentials belong in GitHub Actions Secrets, never source files.
+
+## Intended LeetCode account
+- Profile: https://leetcode.com/u/prabhasavvaru_1/
+- Username: `prabhasavvaru_1`
+- This is a target profile reference only, **not** a connected or authenticated LeetCode session.
