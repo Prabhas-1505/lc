@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Compile-check C++ reference solutions
+        run: python scripts/check_solutions.py
       - name: Generate practice sheet
         run: python scripts/daily.py
       - name: Upload practice sheet
