@@ -39,3 +39,14 @@ The daily selection now excludes:
 **Limitation:** Recent Accepted submissions are not your full solved history. A problem may still be suggested even if you solved it long ago. If LeetCode blocks the public query, the workflow continues with local exclusions and warns in the output. For fully accurate unsolved filtering, a complete solved-problem export/sync is needed. Do not add session cookies to public source files.
 
 This workflow prepares C++ reference solutions but **does not submit to LeetCode or change your solved count**.
+
+## Submission integration research and safety gate (2026-10-18)
+
+The third-party `@stevenli-phoenix/leetcode-cli` package documents `list --status unsolved`, `test`, and `submit` commands. It is **not an official LeetCode API** and requires session cookies. Reference: https://www.npmjs.com/package/@stevenli-phoenix/leetcode-cli
+
+LeetCode's terms restrict processes operating while a user is not logged into the platform and prohibit crawling/scraping: https://leetcode.com/terms/. A scheduled remote bot using account cookies could violate those restrictions. **The repository intentionally does not store credentials, call unofficial submission endpoints, or perform unattended submissions.** Do not add LeetCode session cookies or CSRF tokens to this public repository.
+
+### Ready for verification
+The daily workflow now exports individual `.cpp` reference files along with the Markdown sheet. Download the `leetcode-practice` artifact and review code before submitting through the LeetCode editor. The solution generator and syntax checker are functional, but they do **not** prove Accepted results.
+
+If LeetCode explicitly authorizes an automated submission integration, confirm its approved method and permissions before implementing any authenticated execution.
