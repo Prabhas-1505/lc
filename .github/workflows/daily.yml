@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Compile-check C++ reference solutions
@@ -25,7 +25,7 @@ jobs:
       - name: Generate practice sheet
         run: python scripts/daily.py
       - name: Upload practice sheet
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: leetcode-practice
           path: output/*.md
