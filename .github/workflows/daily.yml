@@ -24,9 +24,13 @@ jobs:
         run: python scripts/check_solutions.py
       - name: Generate practice sheet
         run: python scripts/daily.py
+      - name: Export C++ reference files for manual review
+        run: python scripts/export_cpp.py
       - name: Upload practice sheet
         uses: actions/upload-artifact@v6
         with:
           name: leetcode-practice
-          path: output/*.md
+          path: |
+            output/*.md
+            output/cpp/*.cpp
           retention-days: 30
